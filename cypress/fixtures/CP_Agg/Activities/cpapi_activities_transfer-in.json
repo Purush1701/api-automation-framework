@@ -1,0 +1,312 @@
+{
+  "data": {
+    "retrieveSelectAccountsList": {
+      "requestHeader": { "Service-Entity-Id": "{Service-Entity-Id}" },
+      "requestApiUrl": "asset-transfer/accounts-select-list",
+      "requestApiMethod": "GET",
+      "responseSchema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "integer" },
+            "assetMasterId": { "type": "integer" },
+            "assetName": { "type": "string" },
+            "assetNetwork": { "type": "string" },
+            "clientName": { "type": "string" },
+            "assetAccountNumber": { "type": "string" },
+            "assetAccountAlias": { "type": "string" },
+            "availableBalance": {
+              "type": "object",
+              "properties": {
+                "amount": { "type": "number" },
+                "assetSymbol": { "type": "string" }
+              },
+              "required": ["amount", "assetSymbol"]
+            },
+            "assetAccountState": { "type": "string" },
+            "isRestrictedByRsnAccountTagsRestriction": { "type": "boolean" },
+            "isRestrictedByThirdPartyAccountTagsRestriction": { "type": "boolean" }
+          },
+          "required": [
+            "id",
+            "assetMasterId",
+            "assetName",
+            "assetNetwork",
+            "clientName",
+            "assetAccountNumber",
+            "assetAccountAlias",
+            "availableBalance",
+            "assetAccountState",
+            "isRestrictedByRsnAccountTagsRestriction",
+            "isRestrictedByThirdPartyAccountTagsRestriction"
+          ]
+        }
+      },
+      "staging": {
+        "requestQS": {
+          "assetMasterId": 1646
+        }
+      },
+      "uat": {
+        "requestQS": {
+          "assetMasterId": 456
+        }
+      }
+    },
+    "retrieveBankAccountSelectList": {
+      "requestHeader": { "Service-Entity-Id": "{Service-Entity-Id}" },
+      "requestApiUrl": "asset-transfer/third-party-transfer-fiat/bank-accounts-select-list",
+      "requestApiMethod": "GET",
+      "responseSchema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "integer" },
+            "bankName": { "type": "string" },
+            "bankAccountNumber": { "type": "string" },
+            "bankAccountHolderName": { "type": "string" },
+            "isThirdParty": { "type": "boolean" },
+            "ownedByLegalEntityType": {
+              "type": ["object", "null"],
+              "properties": {
+                "legalEntityType": { "type": "string" }
+              }
+            },
+            "abaRoutingNumber": { "type": "string" }
+          },
+          "required": [
+            "id",
+            "bankName",
+            "bankAccountNumber",
+            "bankAccountHolderName",
+            "isThirdParty",
+            "abaRoutingNumber"
+          ]
+        }
+      }
+    },
+    "retrieveFiatTransferInById": {
+      "requestHeader": { "Service-Entity-Id": "{Service-Entity-Id}" },
+      "requestApiUrl": "activities/transfer-in/fiat/{id}",
+      "requestApiMethod": "GET",
+      "responseSchema": {
+        "type": "object",
+        "properties": {
+          "referenceNumber": { "type": "string" },
+          "amount": {
+            "type": "object",
+            "properties": {
+              "amount": { "type": "number" },
+              "assetSymbol": { "type": "string" }
+            },
+            "required": ["amount", "assetSymbol"]
+          },
+          "feesAmount": {
+            "type": ["object", "null"],
+            "properties": {
+              "amount": { "type": "number" },
+              "assetSymbol": { "type": "string" }
+            }
+          },
+          "dateCreated": { "type": "string", "format": "date-time" },
+          "sourceOfFunds": { "type": ["string", "null"] },
+          "otherSourceOfFundsDescription": { "type": ["string", "null"] },
+          "notes": { "type": ["string", "null"] },
+          "assetName": { "type": "string" },
+          "beneficiaryBankAccount": {
+            "type": "object",
+            "properties": {
+              "bankName": { "type": "string" },
+              "bankAccountNumber": { "type": "string" },
+              "accountHolderName": { "type": "string" },
+              "bankAddress": { "type": "string" },
+              "beneficiaryAddress": { "type": "string" },
+              "routingNumber": { "type": "string" },
+              "swiftCode": { "type": "string" }
+            },
+            "required": ["bankName", "bankAccountNumber", "accountHolderName"]
+          },
+          "sourceBankAccount": {
+            "type": "object",
+            "properties": {
+              "bankName": { "type": "string" },
+              "bankAccountNumber": { "type": "string" },
+              "bankAccountHolderName": { "type": "string" },
+              "intermediaryBankAccount": {
+                "type": ["object", "null"],
+                "properties": {
+                  "bankName": { "type": "string" },
+                  "bankAddress": { "type": "string" },
+                  "country": { "type": "string" },
+                  "swiftCode": { "type": "string" }
+                }
+              },
+              "abaRoutingNumber": { "type": "string" },
+              "bankAccountId": { "type": "integer" }
+            },
+            "required": ["bankName", "bankAccountNumber", "bankAccountHolderName", "bankAccountId"]
+          },
+          "destinationAssetAccount": {
+            "type": "object",
+            "properties": {
+              "assetAccountId": { "type": "integer" },
+              "clientName": { "type": "string" },
+              "assetAccountNumber": { "type": "string" },
+              "assetAccountAlias": { "type": "string" }
+            },
+            "required": ["assetAccountId", "clientName", "assetAccountNumber", "assetAccountAlias"]
+          },
+          "status": { "type": "string" },
+          "statusHistory": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "dateUpdated": { "type": "string", "format": "date-time" },
+                "status": { "type": "string" }
+              },
+              "required": ["dateUpdated", "status"]
+            }
+          },
+          "isCancelable": { "type": "boolean" },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "key": { "type": "string" },
+                "fileName": { "type": "string" },
+                "documentType": { "type": "string" }
+              },
+              "required": ["key", "fileName", "documentType"]
+            }
+          },
+          "assetClass": { "type": "string" },
+          "destinationAssetAccountAssetMasterId": { "type": "integer" }
+        },
+        "required": [
+          "referenceNumber",
+          "amount",
+          "dateCreated",
+          "assetName",
+          "beneficiaryBankAccount",
+          "sourceBankAccount",
+          "destinationAssetAccount",
+          "status",
+          "statusHistory",
+          "isCancelable",
+          "attachments",
+          "assetClass",
+          "destinationAssetAccountAssetMasterId"
+        ]
+      }
+    },
+    "retrieveCryptoTransferInById": {
+      "requestHeader": { "Service-Entity-Id": "{Service-Entity-Id}" },
+      "requestApiUrl": "activities/transfer-in/crypto/{id}",
+      "requestApiMethod": "GET",
+      "responseBody": {},
+      "responseSchema": {
+        "type": "object",
+        "properties": {
+          "dateCreated": { "type": "string", "format": "date-time" },
+          "amount": {
+            "type": "object",
+            "properties": {
+              "amount": { "type": "number" },
+              "assetSymbol": { "type": "string" }
+            },
+            "required": ["amount", "assetSymbol"]
+          },
+          "assetName": { "type": "string" },
+          "referenceNumber": { "type": "string" },
+          "status": { "type": "string" },
+          "statusHistory": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "dateUpdated": { "type": "string", "format": "date-time" },
+                "status": { "type": "string" }
+              },
+              "required": ["dateUpdated", "status"]
+            }
+          },
+          "isCancelable": { "type": "boolean" },
+          "source": {
+            "type": "object",
+            "properties": {
+              "assetName": { "type": "string" },
+              "assetSymbol": { "type": "string" },
+              "walletAddress": { "type": "string" },
+              "network": { "type": "string" },
+              "alias": { "type": "string" },
+              "walletAddressId": { "type": "integer" }
+            },
+            "required": ["assetName", "assetSymbol", "walletAddress", "network", "alias", "walletAddressId"]
+          },
+          "destination": {
+            "type": "object",
+            "properties": {
+              "assetAccountId": { "type": "integer" },
+              "assetName": { "type": "string" },
+              "assetSymbol": { "type": "string" },
+              "walletAddress": { "type": "string" },
+              "network": { "type": "string" },
+              "clientName": { "type": "string" },
+              "assetAccountNumber": { "type": "string" }
+            },
+            "required": [
+              "assetAccountId",
+              "assetName",
+              "assetSymbol",
+              "walletAddress",
+              "network",
+              "clientName",
+              "assetAccountNumber"
+            ]
+          },
+          "notes": { "type": "string" },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "key": { "type": "string" },
+                "fileName": { "type": "string" },
+                "documentType": { "type": "string" }
+              },
+              "required": ["key", "fileName", "documentType"]
+            }
+          },
+          "transactionFee": {
+            "type": "object",
+            "properties": {
+              "amount": { "type": "number" },
+              "assetSymbol": { "type": "string" }
+            },
+            "required": ["amount", "assetSymbol"]
+          },
+          "destinationAccountAssetMasterId": { "type": "integer" }
+        },
+        "required": [
+          "dateCreated",
+          "amount",
+          "assetName",
+          "referenceNumber",
+          "status",
+          "statusHistory",
+          "isCancelable",
+          "source",
+          "destination",
+          "notes",
+          "attachments",
+          "transactionFee",
+          "destinationAccountAssetMasterId"
+        ]
+      }
+    }
+  }
+}

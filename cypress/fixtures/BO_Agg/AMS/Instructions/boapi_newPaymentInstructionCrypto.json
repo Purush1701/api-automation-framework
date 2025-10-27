@@ -1,0 +1,163 @@
+{
+  "data": {
+    "createCryptoInstructionSuccess": {
+      "requestApiMethod": "POST",
+      "requestApiUrl": "crypto-payment-instruction",
+      "requestBody": {
+        "transferType": 3,
+        "serviceAccountId": "{serviceAccountId}",
+        "amount": 0.01,
+        "address": "0xplaceholder1234567890abcdef1234567890ab",
+        "walletAddressId": null,
+        "assetName": "ETH Sepolia (Ethereum Goerli)"
+      },
+      "responseBody": {},
+      "staging": {
+        "serviceAccountId": 2800,
+        "responseBody": {
+          "address": null,
+          "packageName": "Trust Service",
+          "serviceAccountNumber": 201000000001,
+          "serviceAccountName": "Service Account",
+          "amount": 0.01,
+          "currency": "ETH_SEP",
+          "status": 2,
+          "assetName": "ETH Sepolia"
+        }
+      },
+      "uat": {
+        "serviceAccountId": 1255,
+        "responseBody": {
+          "address": null,
+          "packageName": "Custody Service",
+          "serviceAccountNumber": 101000000001,
+          "serviceAccountName": "Service Account",
+          "amount": 0.01,
+          "currency": "ETH 01",
+          "status": 2,
+          "assetName": "Ethereum (Sepolia)"
+        }
+      }
+    },
+    "retrieveInstructionsList": {
+      "requestApiMethod": "POST",
+      "requestApiUrl": "payment-instruction/filter-instructions",
+      "requestBody": {
+        "pageIndex": 1,
+        "pageSize": 5,
+        "queryBuilderView": {},
+        "clientId": "{clientId}"
+      },
+      "staging": {
+        "clientId": 794,
+        "responseBody": {}
+      },
+      "uat": {
+        "clientId": 397,
+        "responseBody": {}
+      }
+    },
+    "retrieveInstructionsDetails": {
+      "requestApiMethod": "POST",
+      "requestApiUrl": "instruction/inbox-crypto-detail",
+      "requestQS": {
+        "cryptoPaymentInstructionId": 0
+      },
+      "responseBody": {}
+    },
+    "retrieveInstructionsClientSummary": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "instruction/client-summary/cypto/{instructionId}",
+
+      "responseBody": {}
+    },
+    "retrieveInstructionsUploadedDocumentsList": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "uploaded-files/instructions/{instructionId}/files",
+      "responseBody": {}
+    },
+    "retrieveInstructionsLinkedTransactions": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "instruction/linked-transaction/crypto/{instructionId}",
+      "responseBody": {}
+    },
+    "retrieveInstructionsLinkedFireblockTransactions": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "fireblocks/transaction/{transactionId}",
+      "responseBody": {}
+    },
+    "retrieveInstructionsAuditList": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "instruction/InstructionCryptoLogs/{instructionId}",
+      "responseBody": {}
+    },
+    "uploadTempInstructionsDocuments": {
+      "requestApiMethod": "POST",
+      "requestApiUrl": "file-storage/upload-temp",
+      "requestBody": {
+        "formData": {
+          "filePath": "images/upload_PNG_Sample.png",
+          "fileName": "upload_PNG_Sample.png",
+          "formFile": "binary",
+          "size": 215212,
+          "contentType": "image/png",
+          "documentType": 1,
+          "fileId": 0,
+          "uploadFileClientId": "{Id}"
+        }
+      },
+      "responseBody": {},
+      "staging": { "uploadFileClientId": 794 },
+      "uat": { "uploadFileClientId": 397 }
+    },
+    "uploadInstructionsDocuments": {
+      "requestApiMethod": "POST",
+      "requestApiUrl": "uploaded-files/instruction-files/upload",
+      "staging": {
+        "requestBody": {
+          "uploadFileClientId": 794,
+          "fileKey": "{fileKey}",
+          "fileName": "{fileName}",
+          "size": 215212,
+          "contentType": "image/png",
+          "documentType": 1,
+          "instructionReferenceNumber": "{instructionReferenceNumber}"
+        },
+        "responseBody": {}
+      },
+      "uat": {
+        "requestBody": {
+          "uploadFileClientId": 397,
+          "fileKey": "{fileKey}",
+          "fileName": "{fileKey}",
+          "size": 215212,
+          "contentType": "image/png",
+          "documentType": 1,
+          "instructionReferenceNumber": "{instructionReferenceNumber}"
+        },
+        "responseBody": {}
+      }
+    },
+    "retrieveLinkedTransactionDetails": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "ams/transaction/transaction-details/",
+      "responseBody": {}
+    },
+    "retrieveFireblockTx": {
+      "requestApiMethod": "POST",
+      "requestApiUrl": "fireblocks/transactions-by-filter",
+      "requestBody": {
+        "pageSize": 10,
+        "pageIndex": 1,
+        "filter": {
+          "filterBy": 1,
+          "value": "",
+          "onlyNotLinked": false,
+          "from": "2023-12-01T00:00:00.000Z",
+          "to": "2024-12-21T23:59:59.999Z"
+        }
+      },
+      "responseBody": {}
+    }
+  }
+}

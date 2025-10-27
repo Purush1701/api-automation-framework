@@ -1,0 +1,288 @@
+{
+  "data": {
+    "retrieveAssetbySymbol_Cash": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "ams/assets/{symbol}",
+      "staging": {
+        "responseBody": {
+          "symbol": "HKD",
+          "name": "Hong Kong Dollar",
+          "class": 0,
+          "rounding": 2
+        }
+      },
+      "uat": {
+        "responseBody": {
+          "symbol": "HKD",
+          "name": "Hong Kong Dollar",
+          "class": 0,
+          "rounding": 2
+        }
+      }
+    },
+    "retrieveAssetbySymbol_CryptoCurrency": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "ams/assets/{symbol}",
+      "staging": {
+        "responseBody": {
+          "symbol": "BTC",
+          "name": "BTC",
+          "class": 1,
+          "rounding": 8
+        }
+      },
+      "uat": {
+        "responseBody": {
+          "symbol": "BTC",
+          "name": "BTC",
+          "class": 1,
+          "rounding": 8
+        }
+      }
+    },
+    "retrieveAssetbySymbol_StockAsset": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "ams/assets/{symbol}",
+      "staging": {
+        "responseBody": {
+          "symbol": "COIN",
+          "name": "Coin Base Stock",
+          "class": 2,
+          "rounding": 2
+        }
+      },
+      "uat": {
+        "responseBody": {
+          "symbol": "COIN",
+          "name": "Coinbase Global Inc - Class A Common Stock",
+          "class": 2,
+          "rounding": 4
+        }
+      }
+    },
+    "retrieveAssetbySymbol_BondAsset": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "ams/assets/{symbol}",
+      "staging": {
+        "responseBody": {
+          "symbol": "US3Y",
+          "name": "US Treasury Bill 3 Year 4.6%",
+          "class": 3,
+          "rounding": 2
+        }
+      },
+      "uat": {
+        "responseBody": {
+          "symbol": "13W TBILL",
+          "name": "US-T Govt Bill Aug17'23 5.06%",
+          "class": 3,
+          "rounding": 2
+        }
+      }
+    },
+    "retrieveAllAsset": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "ams/assets/",
+      "staging": {
+        "responseBody": [
+          {
+            "symbol": "HKD",
+            "name": "Hong Kong Dollar",
+            "class": 0,
+            "decimalPlaces": 2
+          }
+        ]
+      },
+      "uat": {
+        "responseBody": [
+          {
+            "symbol": "HKD",
+            "name": "Hong Kong Dollar",
+            "class": 0,
+            "decimalPlaces": 2
+          }
+        ]
+      }
+    },
+    "retrieveAssetbyassetClass_Cash": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "ams/assets",
+      "requestQS": {
+        "assetClass": "0"
+      },
+      "staging": {
+        "responseBody": [
+          { "symbol": "HKD", "name": "Hong Kong Dollar", "class": 0, "decimalPlaces": 2 },
+          { "symbol": "EUR", "name": "EUR", "class": 0, "decimalPlaces": 2 },
+          { "symbol": "CAD", "name": "CAD", "class": 0, "decimalPlaces": 2 }
+        ]
+      },
+      "uat": {
+        "responseBody": [
+          { "symbol": "USD", "name": "United States Dollar", "class": 0, "decimalPlaces": 2 },
+          { "symbol": "CHF", "name": "Swiss Franc", "class": 0, "decimalPlaces": 2 },
+          { "symbol": "AUD", "name": "Australian Dollar", "class": 0, "decimalPlaces": 2 }
+        ]
+      }
+    },
+    "retrieveAssetbyassetClass_Cryptocurrency": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "ams/assets",
+      "requestQS": {
+        "assetClass": "1"
+      },
+      "staging": {
+        "responseBody": [
+          { "symbol": "USDT_BSC", "name": "USDT", "class": 1, "decimalPlaces": 2 },
+          { "symbol": "TUSD", "name": "TUSD", "class": 1, "decimalPlaces": 5 }
+        ]
+      },
+      "uat": {
+        "responseBody": [
+          { "symbol": "TUSD", "name": "TrueUSD", "class": 1, "decimalPlaces": 8 },
+          { "symbol": "ETH_ROPSTEN", "name": "ETH", "class": 1, "decimalPlaces": 8 },
+          { "symbol": "BTC", "name": "BTC", "class": 1, "decimalPlaces": 8 }
+        ]
+      }
+    },
+    "retrieveAssetbyassetClass_Stock": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "ams/assets",
+      "requestQS": {
+        "assetClass": "2"
+      },
+      "staging": {
+        "responseBody": [
+          {
+            "symbol": "TA",
+            "name": "Test Asset",
+            "class": 2,
+            "decimalPlaces": 2
+          },
+          {
+            "symbol": "HOOD",
+            "name": "Placeholder Trading Platform Stock",
+            "class": 2,
+            "decimalPlaces": 2
+          },
+          {
+            "symbol": "WISE.L",
+            "name": "Placeholder Financial Services Stock",
+            "class": 2,
+            "decimalPlaces": 2
+          }
+        ]
+      },
+      "uat": {
+        "responseBody": [
+          {
+            "symbol": "APPL",
+            "name": "Placeholder Tech Stock",
+            "class": 2,
+            "decimalPlaces": 2
+          },
+          {
+            "symbol": "GOOGL",
+            "name": "Placeholder Search Company",
+            "class": 2,
+            "decimalPlaces": 2
+          },
+          {
+            "symbol": "00005",
+            "name": "Placeholder Bank Stock",
+            "class": 2,
+            "decimalPlaces": 2
+          }
+        ]
+      }
+    },
+    "retrieveAssetbyassetClass_Bond": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "ams/assets",
+      "requestQS": {
+        "assetClass": "3"
+      },
+      "staging": {
+        "responseBody": [
+          {
+            "symbol": "US3Y",
+            "name": "US Treasury Bill 3 Year 4.6%",
+            "class": 3,
+            "decimalPlaces": 2
+          },
+          { "symbol": "ARAS", "name": "HKD Term Deposit 1M", "class": 3, "decimalPlaces": 2 },
+          {
+            "symbol": "A",
+            "name": "ARIA Commodity Finance Fund - GBP Class A 7.00%",
+            "class": 3,
+            "decimalPlaces": 2
+          }
+        ]
+      },
+      "uat": {
+        "responseBody": [
+          {
+            "symbol": "13W TBILL",
+            "name": "US-T Govt Bill Aug17'23 5.06%",
+            "class": 3,
+            "decimalPlaces": 2
+          },
+          { "symbol": "TBILL10", "name": "T-Bills", "class": 3, "decimalPlaces": 2 },
+          { "symbol": "TBILL", "name": "T-Bills", "class": 3, "decimalPlaces": 2 }
+        ]
+      }
+    },
+    "retrieveAssetbyassetClass_RealEstate": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "ams/assets",
+      "requestQS": {
+        "assetClass": "4"
+      },
+      "staging": {
+        "responseBody": [{ "symbol": "SSDASDS", "name": "Test Scope Verification", "class": 4, "decimalPlaces": 2 }]
+      },
+      "uat": {
+        "responseBody": []
+      }
+    },
+    "retrieveAssetbyassetClass_PrivateEquity": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "ams/assets",
+      "requestQS": {
+        "assetClass": "5"
+      },
+      "staging": {
+        "responseBody": {}
+      },
+      "uat": {
+        "responseBody": {}
+      }
+    },
+    "retrieveAssetbyassetClass_Commodity": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "ams/assets",
+      "requestQS": {
+        "assetClass": "6"
+      },
+      "staging": {
+        "responseBody": []
+      },
+      "uat": {
+        "responseBody": []
+      }
+    },
+    "retrieveAssetbyassetClass_NFT": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "ams/assets",
+      "requestQS": {
+        "assetClass": "7"
+      },
+      "staging": {
+        "responseBody": {}
+      },
+      "uat": {
+        "responseBody": {}
+      }
+    }
+  }
+}

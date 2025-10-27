@@ -1,0 +1,54 @@
+{
+  "data": {
+    "retrieveClientBankAccounts": {
+      "requestApiUrl": "clients/{clientId}/bank-accounts",
+      "requestApiMethod": "GET",
+      "responseBody": {}
+    },
+    "retrieveClientBankAccountDetails": {
+      "requestApiUrl": "clients/{clientId}/bank-accounts/{bankAccountId}",
+      "requestApiMethod": "GET",
+      "responseBody": {}
+    },
+
+    "retrieveClientBankAccountOrders": {
+      "requestApiUrl": "clients/{clientId}/bank-accounts/{bankAccountId}/orders",
+      "requestQS": {
+        "_sort": "createdAt desc",
+        "_page": 1,
+        "_pageSize": 50
+      },
+      "requestApiMethod": "GET",
+      "responseBody": {}
+    },
+    "createClientBankAccount": {
+      "requestApiUrl": "clients/{clientId}/bank-accounts",
+      "requestApiMethod": "POST",
+      "requestBody": {
+        "bankAccountDetails": {
+          "beneficiary": "{beneficiary}",
+          "iban": "{iban}",
+          "bankName": "{bankName}",
+          "swiftCode": "{swiftCode}",
+          "alias": "{alias}",
+          "sampleOwnBankId": "{sampleOwnBankId}",
+          "sampleThirdPartyBankId": "{sampleThirdPartyBankId}"
+        },
+        "bankAddress": {
+          "street": "{street}",
+          "postalCode": "{postalCode}",
+          "city": "{city}",
+          "state": "{state}",
+          "country": "{country}"
+        }
+      },
+      "responseBody": {}
+    },
+
+    "archiveClientBankAccount": {
+      "requestApiUrl": "clients/{clientId}/bank-accounts/{bankAccountId}/archive",
+      "requestApiMethod": "PUT",
+      "responseBody": {}
+    }
+  }
+}

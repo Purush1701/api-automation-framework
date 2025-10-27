@@ -1,0 +1,121 @@
+{
+  "data": {
+    "commonData": {
+      "staging": {
+        "clientId": 393,
+        "bankAccountId": 6691
+      },
+      "uat": {
+        "clientId": 1522,
+        "bankAccountId": 2561
+      }
+    },
+    "createBankAccount": {
+      "requestApiMethod": "POST",
+      "requestApiUrl": "bank-accounts",
+      "requestBody": {
+        "clientId": "{clientId}",
+        "bankId": "{bankId}",
+        "accountHolder": "{accountHolder}",
+        "accountNumber": "{accountNumber}"
+      },
+      "staging": {
+        "accountHolder": "Placeholder Test User"
+      },
+      "uat": {
+        "accountHolder": "autotest_CuEzg1YPSe"
+      }
+    },
+    "retrieveListOfBankAccounts": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "bank-accounts",
+      "requestQS": {
+        "clientId": "{clientId}"
+      },
+      "staging": {
+        "responseBody": {}
+      },
+      "uat": {
+        "responseBody": {}
+      }
+    },
+    "retrieveSelectListOfBankAccounts": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "bank-accounts/selectlist",
+      "requestQS": {
+        "clientId": "{clientId}"
+      },
+      "staging": {
+        "responseBody": [
+          {
+            "id": 6691,
+            "bankName": "Placeholder Bank Name",
+            "accountNumber": "0000000000"
+          },
+          {
+            "id": 6733,
+            "bankName": "Placeholder Bank Name",
+            "accountNumber": "0000000000"
+          },
+          {
+            "id": 8673,
+            "bankName": "Placeholder Bank Name",
+            "accountNumber": "0000000000"
+          }
+        ]
+      },
+      "uat": {
+        "responseBody": [
+          {
+            "id": 2561,
+            "bankName": "Placeholder Investment Bank",
+            "accountNumber": "0000000000"
+          }
+        ]
+      }
+    },
+    "retrieveBankAccountDetails": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "bank-accounts/{bankAccountId}"
+    },
+    "searchBanksByNameOrSwift": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "banks/search",
+      "requestQS": {
+        "name": "Placeholder Bank",
+        "swiftCode": "PLCHLD123"
+      },
+      "staging": {
+        "responseBody": {}
+      },
+      "uat": {
+        "responseBody": {}
+      }
+    },
+    "retrieveBankById": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "banks/{id}/list-item",
+      "staging": {
+        "responseBody": {}
+      },
+      "uat": {
+        "responseBody": {}
+      }
+    },
+    "createBank": {
+      "requestApiMethod": "POST",
+      "requestApiUrl": "banks/create",
+      "requestBody": {
+        "name": "",
+        "countryId": 198,
+        "swiftCode": "PLCHLD456",
+        "city": "Kowloon",
+        "branch": null,
+        "line1": "20F",
+        "line2": "Test Mansion",
+        "stateProvince": null
+      },
+      "responseBody": {}
+    }
+  }
+}

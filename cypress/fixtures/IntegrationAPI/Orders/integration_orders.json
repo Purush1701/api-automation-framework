@@ -1,0 +1,14 @@
+{
+  "data": {
+    "retrieveOrders": {
+      "requestHeader": { "X-Delegated-Client": "{X-Delegated-Client}" },
+      "requestApiUrl": "orders",
+      "requestApiMethod": "GET",
+      "requestQS": {
+        "_page": 1,
+        "_pageSize": 10
+      },
+      "responseBody": {}
+    }
+  }
+}

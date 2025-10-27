@@ -1,0 +1,14 @@
+{
+  "data": {
+    "retrieveBankAccounts": {
+      "requestHeader": { "X-Delegated-Client": "{X-Delegated-Client}" },
+      "requestApiUrl": "bank-accounts",
+      "requestApiMethod": "GET",
+      "requestQS": {
+        "_page": 1,
+        "_pageSize": 50
+      },
+      "responseBody": {}
+    }
+  }
+}

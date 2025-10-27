@@ -1,0 +1,70 @@
+{
+  "data": {
+    "retrieveSelectAccountsList": {
+      "requestHeader": { "Service-Entity-Id": "{Service-Entity-Id}" },
+      "requestApiUrl": "asset-transfer/accounts-select-list",
+      "requestApiMethod": "GET",
+      "requestQS": {
+        "assetMasterId": "{assetMasterId}"
+      },
+      "responseBody": {}
+    },
+    "retrieveBankAccountSelectList": {
+      "requestHeader": { "Service-Entity-Id": "{Service-Entity-Id}" },
+      "requestApiUrl": "asset-transfer/transfer-in-fiat/bank-accounts-select-list",
+      "requestApiMethod": "GET",
+      "responseBody": {}
+    },
+    "createTransferInFiat": {
+      "requestHeader": { "Service-Entity-Id": "{Service-Entity-Id}" },
+      "requestApiUrl": "asset-transfer/transfer-in-fiat",
+      "requestApiMethod": "POST",
+      "requestBody": {
+        "sourceBankAccountId": "{sourceBankAccountId}",
+        "destinationAssetAccountId": "{destinationAssetAccountId}",
+        "amount": 100,
+        "sourceOfFunds": "investment-proceeds",
+        "otherSourceOfFundsDescription": null,
+        "notes": "automation test",
+        "attachments": [
+          {
+            "key": "{key}",
+            "size": 215212,
+            "contentType": "image/png",
+            "documentType": "passport",
+            "bucket": 3,
+            "fileToProcess": {},
+            "userId": "{userId}"
+          }
+        ]
+      },
+      "responseBody": {}
+    },
+    "retrieveIsFirstBankAccount": {
+      "requestHeader": { "Service-Entity-Id": "{Service-Entity-Id}" },
+      "requestApiUrl": "asset-transfer/transfer-in-fiat/{bankAccountId}/is-first",
+      "requestApiMethod": "GET",
+      "responseBody": {}
+    },
+    "addAdditionalDocument": {
+      "requestHeader": { "Service-Entity-Id": "{Service-Entity-Id}" },
+      "requestApiUrl": "activities/instruction-files/add",
+      "requestApiMethod": "POST",
+      "requestBody": {
+        "instructionReferenceNumber": "{instructionReferenceNumber}",
+        "fileDtos": [
+          {
+            "key": "",
+            "size": 215212,
+            "contentType": "image/png",
+            "documentType": "other",
+            "bucket": 3,
+            "fileToProcess": {},
+            "userId": ""
+          }
+        ]
+      },
+      "responseBody": {}
+    }
+  }
+}

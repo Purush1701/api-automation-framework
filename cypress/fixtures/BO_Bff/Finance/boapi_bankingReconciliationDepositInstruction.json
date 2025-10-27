@@ -1,0 +1,69 @@
+{
+  "data": {
+    "importFileValidation": {
+      "requestApiMethod": "POST",
+      "requestApiUrl": "bank-transactions",
+      "requestHeader": {},
+      "requestBody": {
+        "formData": {
+          "fileFieldName": "file",
+          "FormFile": {
+            "filePath": "images/bank_template.xlsx",
+            "fileName": "bank_template.xlsx",
+            "contentType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+          },
+          "fileName": "bank_template.xlsx",
+          "referenceNumber": "{referenceNumber}"
+        }
+      }
+    },
+    "importBankTransaction": {
+      "requestApiMethod": "PATCH",
+      "requestApiUrl": "bank-transactions/{batchId}",
+      "base": "bo_bff_api"
+    },
+    "retrieveImportedBankTransaction": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "bank-transactions/uploaded/list",
+      "requestQS": {
+        "_sort": "",
+        "_page": 1,
+        "_pageSize": 10
+      }
+    },
+    "importToReconciliationPage": {
+      "requestApiMethod": "POST",
+      "requestApiUrl": "bank-transactions/import",
+      "requestBody": {
+        "ids": "[batchId]"
+      }
+    },
+    "retrieveReconcileInitiatedRecords": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "bank-transactions/imported/list",
+      "requestQS": {
+        "_filter": "status=in=(matched,matching)",
+        "_sort": "",
+        "_page": 1,
+        "_pageSize": 10
+      }
+    },
+    "retrieveReconcileClosedRecords": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "bank-transactions/imported/list",
+      "requestQS": {
+        "_filter": "status=in=(completed)",
+        "_sort": "",
+        "_page": 1,
+        "_pageSize": 10
+      }
+    },
+    "confirmReconciliation": {
+      "requestApiMethod": "PATCH",
+      "requestApiUrl": "bank-transactions/confirm",
+      "requestBody": {
+        "ids": "[batchId]"
+      }
+    }
+  }
+}

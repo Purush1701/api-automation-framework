@@ -1,0 +1,220 @@
+{
+  "data": {
+    "createFiatInstructionSuccess": {
+      "requestApiMethod": "POST",
+      "requestApiUrl": "payment-instruction",
+      "requestBody": {
+        "serviceAccountId": "{serviceAccountId}",
+        "clientBankAccountId": "{clientBankAccountId}",
+        "amount": 5000,
+        "currency": "USD",
+        "transferType": 1,
+        "sourceOfFunds": 2,
+        "otherSourceOfFundsDescription": null,
+        "purposeOfPayment": null,
+        "otherPurposeOfPaymentDescription": null,
+        "description": "autotest create instruction from backoffice",
+        "bankChargedByType": 3,
+        "attachments": [],
+        "isThirdPartyFirstDeposit": false
+      },
+      "staging": {
+        "serviceAccountId": 2000,
+        "clientBankAccountId": 10000,
+        "responseBody": {}
+      },
+      "uat": {
+        "serviceAccountId": 2001,
+        "clientBankAccountId": 10001,
+        "responseBody": {}
+      }
+    },
+    "retrieveInstructionsList": {
+      "requestApiMethod": "POST",
+      "requestApiUrl": "payment-instruction/filter-instructions",
+      "requestBody": {
+        "pageIndex": 1,
+        "pageSize": 5,
+        "queryBuilderView": {},
+        "clientId": "{clientId}"
+      },
+      "staging": {
+        "clientId": 794,
+        "responseBody": {}
+      },
+      "uat": {
+        "clientId": 397,
+        "responseBody": {}
+      }
+    },
+    "retrieveInstructionsDetails": {
+      "requestApiMethod": "POST",
+      "requestApiUrl": "instruction/inbox-fiat-detail",
+      "requestQS": {
+        "paymentInstructionId": "{paymentInstructionId}"
+      },
+      "responseBody": {}
+    },
+    "retrieveInstructionsClientSummary": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "instruction/client-summary/fiat/{instructionId}",
+      "responseBody": {}
+    },
+    "retrieveInstructionsUploadedDocumentsList": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "uploaded-files/instructions/{instructionId}/files",
+      "responseBody": {}
+    },
+    "retrieveInstructionsLinkedTransactions": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "instruction/linked-transaction/fiat/{instructionId}",
+      "responseBody": {}
+    },
+    "retrieveInstructionsAuditList": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "instruction/InstructionFiatLogs/{instructionId}",
+      "responseBody": {}
+    },
+    "uploadTempInstructionsDocuments": {
+      "requestApiMethod": "POST",
+      "requestApiUrl": "file-storage/upload-temp",
+      "requestBody": {
+        "formData": {
+          "filePath": "images/upload_PNG_Sample.png",
+          "fileName": "upload_PNG_Sample.png",
+          "formFile": "binary",
+          "size": 215212,
+          "contentType": "image/png",
+          "documentType": 1,
+          "fileId": 0,
+          "uploadFileClientId": "{uploadFileClientId}"
+        }
+      },
+      "responseBody": {},
+      "staging": { "uploadFileClientId": "794" },
+      "uat": { "uploadFileClientId": "397" }
+    },
+    "uploadInstructionsDocuments": {
+      "requestApiMethod": "POST",
+      "requestApiUrl": "uploaded-files/instruction-files/upload",
+      "requestBody": {
+        "uploadFileClientId": "{Id}",
+        "legalEntityId": null,
+        "fileKey": "{fileKey}",
+        "fileName": "{fileName}",
+        "size": 215212,
+        "contentType": "image/png",
+        "documentType": 1,
+        "instructionReferenceNumber": "{instructionReferenceNumber}"
+      },
+      "responseBody": {},
+      "staging": { "uploadFileClientId": 794 },
+      "uat": { "uploadFileClientId": 397 }
+    },
+    "createLinkedTransaction": {
+      "requestApiMethod": "POST",
+      "requestApiUrl": "ams/transaction/inventory-receipt",
+      "staging": {
+        "requestBody": {
+          "instructionReferenceNumber": "{instructionReferenceNumber}",
+          "paidOnDate": "{paidOnDate}",
+          "quantity": 5000,
+          "price": 1,
+          "description": "autotest create tx from backoffice",
+          "priceType": "perUnit",
+          "transactionFees": {
+            "defaultFeeAccountId": 16149,
+            "feeFixedAmount": "25.00000000",
+            "feePercentageAmount": 0,
+            "feeAmount": 25,
+            "feeType": 12
+          },
+          "transactionExternalExpenses": {
+            "quantity": 0,
+            "price": 0,
+            "assetAccountId": null,
+            "ledgerAccountId": null,
+            "description": ""
+          },
+          "reference": "{reference}",
+          "assetAccountId": 16149,
+          "serviceEntityId": 889,
+          "attachments": []
+        },
+        "responseBody": {}
+      },
+      "uat": {
+        "requestBody": {
+          "instructionReferenceNumber": "{instructionReferenceNumber}",
+          "paidOnDate": "{paidOnDate}",
+          "quantity": 54616.42,
+          "price": 1,
+          "description": "autotest LTx create",
+          "priceType": "perUnit",
+          "transactionFees": {
+            "defaultFeeAccountId": 12786,
+            "feeFixedAmount": "25.00000000",
+            "feePercentageAmount": 0,
+            "feeAmount": 25,
+            "feeType": 12
+          },
+          "transactionExternalExpenses": {
+            "quantity": 0,
+            "price": 0,
+            "assetAccountId": null,
+            "ledgerAccountId": null,
+            "description": ""
+          },
+          "reference": "{reference}",
+          "assetAccountId": 12786,
+          "serviceEntityId": 399,
+          "attachments": []
+        },
+        "responseBody": {}
+      }
+    },
+    "retrieveLinkedTransactionDetails": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "ams/transaction/transaction-details/{transactionId}",
+      "responseBody": {}
+    },
+    "updateStatusCompleteLinkedTransaction": {
+      "requestApiMethod": "PATCH",
+      "requestApiUrl": "ams/transaction/complete",
+      "requestQS": { "id": "{referenceId}" },
+      "responseBody": {}
+    },
+    "updateStatusPendingInstruction": {
+      "requestApiMethod": "POST",
+      "requestApiUrl": "instruction/update-fiat-status",
+      "requestBody": {
+        "id": "{instructionId}",
+        "status": 2,
+        "transferType": 1,
+        "remark": "autotest status update to pending from backoffice"
+      },
+      "responseBody": {}
+    },
+    "updateStatusCompleteInstruction": {
+      "requestApiMethod": "POST",
+      "requestApiUrl": "instruction/update-fiat-status",
+      "requestBody": {
+        "id": "{instructionId}",
+        "status": 3,
+        "transferType": 1,
+        "remark": "autotest status update to complete from backoffice"
+      },
+      "responseBody": {}
+    },
+    "retrieveBankChangerByTypes": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "payment-instruction/bank-changer-by-types",
+      "responseBody": {}
+    },
+    "retrieveTransactionFeeType": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "ams/transaction/fee-type/{instructionRefNumber}",
+      "responseBody": {}
+    }
+  }
+}

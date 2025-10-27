@@ -1,0 +1,104 @@
+{
+  "data": {
+    "retrieveListoftransactions_aaId": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "ams/transactions",
+      "requestQS": {
+        "aaId": "{aaId}"
+      },
+      "staging": {
+        "responseBody": {
+          "id": 25763827,
+          "clientId": 393,
+          "serviceEntityId": 504,
+          "serviceEntityName": "Placeholder Test Product",
+          "assetSymbol": "ETH",
+          "assetName": "ETH",
+          "assetAccountId": 15541,
+          "date": "2023-06-15T02:24:26.928346Z",
+          "valuationDate": "2023-06-15T00:00:00Z",
+          "executionDate": "2023-06-15T02:24:26.928346Z",
+          "transactionNumber": "TRX-25763827",
+          "reference": "PRL-ZV3LFD",
+          "description": "Placeholder Payment Instruction - Received from Placeholder Company",
+          "qty": 0.0001,
+          "price": 1816.38044914,
+          "amount": 0.18,
+          "transactionTypeCode": "PMNT-MDOP-INTR"
+        }
+      },
+      "uat": {
+        "requestQS": {
+          "aaId": "{aaId}"
+        },
+        "responseBody": {
+          "id": 25732219,
+          "clientId": 336,
+          "serviceEntityId": 312,
+          "serviceEntityName": "Placeholder Payroll Service",
+          "assetSymbol": "USD",
+          "assetName": "United States Dollar",
+          "assetAccountId": 12582,
+          "date": "2025-04-24T09:22:03.728959Z",
+          "valuationDate": "2025-04-24T00:00:00Z",
+          "executionDate": "2025-04-24T09:22:03.728959Z",
+          "transactionNumber": "TRX-25732219",
+          "reference": "RSN-IHTB5C",
+          "description": "RSN Transfer - Receive",
+          "qty": 1000.0,
+          "price": 1.0,
+          "amount": 1000.0,
+          "transactionTypeCode": "PMNT-MDOP-INTR"
+        }
+      }
+    },
+    "retrieveTransactionDetails": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "ams/transactions/{Id}",
+      "staging": {
+        "responseBody": {
+          "id": 25763851,
+          "clientId": 393,
+          "serviceEntityId": 504,
+          "serviceEntityName": "Placeholder Test Product",
+          "assetAccountId": 15541,
+          "assetName": "ETH",
+          "assetSymbol": "ETH",
+          "assetAccountName": "ETH Goerli Test Network",
+          "date": "2023-06-15T02:45:29.498219Z",
+          "valuationDate": "2023-06-15T00:00:00Z",
+          "executionDate": "2023-06-15T02:45:29.678516Z",
+          "transactionNumber": "TRX-25763851",
+          "reference": "PRL-AWJKRM",
+          "description": "Placeholder Payment Instruction - Received from Placeholder Company",
+          "qty": 0.0001,
+          "price": 1652.34633179,
+          "amount": 0.17,
+          "transactionTypeCode": "PMNT-MDOP-INTR"
+        }
+      },
+      "uat": {
+        "responseBody": {
+          "id": 25615307,
+          "clientId": 336,
+          "serviceEntityId": 312,
+          "serviceEntityName": "Placeholder Payroll Service",
+          "assetAccountId": 12589,
+          "assetName": "ETH on Goerli",
+          "assetSymbol": "ETH_OBS",
+          "assetAccountName": "ETH Goerli TestNet ",
+          "date": "2023-06-21T08:11:04.084866Z",
+          "valuationDate": "2023-06-21T00:00:00Z",
+          "executionDate": "2023-06-21T08:11:08.425629Z",
+          "transactionNumber": "TRX-25615307",
+          "reference": "CMR-29682M",
+          "description": "Add service transaction fee as linked transaction",
+          "qty": 0.008,
+          "price": 1735.20735728,
+          "amount": 13.88,
+          "transactionTypeCode": "PMNT-MDOP-INTR"
+        }
+      }
+    }
+  }
+}

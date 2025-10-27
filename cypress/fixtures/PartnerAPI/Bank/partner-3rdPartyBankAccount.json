@@ -1,0 +1,174 @@
+{
+  "data": {
+    "commonData": {
+      "staging": {
+        "clientId": 393,
+        "bankAccountId": 8658
+      },
+      "uat": {
+        "clientId": 1522,
+        "bankAccountId": 3357
+      }
+    },
+    "retrieveThirdPartyBankAccountsList": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "3rd-party-bank-accounts",
+      "requestQS": {
+        "clientId": "{clientId}"
+      },
+      "staging": {
+        "responseBody": {}
+      },
+      "uat": {
+        "responseBody": {}
+      }
+    },
+    "createIndividualThirdPartyBankAccount": {
+      "requestApiMethod": "POST",
+      "requestApiUrl": "3rd-party-bank-accounts/individual",
+      "requestBody": {
+        "clientId": "{clientId}",
+        "bankId": "{bankId}",
+        "accountNumber": "{accountNumber}",
+        "clearingCode": "123",
+        "bankBranchCode": "123123",
+        "bankAccountHolderDetails": {
+          "firstName": "{firstName}",
+          "middleName": "test",
+          "lastName": "PlaceholderUser",
+          "birthday": "1996-08-24T14:15:22Z",
+          "gender": "male",
+          "citizenshipId": 136,
+          "placeOfBirthCountryId": 136,
+          "identityDocumentId": "123123",
+          "identityDocumentIssuedCountryId": 136,
+          "identityDocumentType": 12,
+          "identityProof": {
+            "base64": "{base64}",
+            "fileName": "upload_PDF_Sample.pdf",
+            "contentType": "application/pdf"
+          },
+          "phone": {
+            "phoneNumber": "0000000000",
+            "countryId": 136,
+            "countryCode": "93",
+            "type": 1
+          },
+          "residentialAddress": {
+            "id": 0,
+            "legalEntityId": 0,
+            "addressType": 1,
+            "line1": "autotest_Address Line",
+            "line2": "Lane No:5",
+            "city": "Hong Kong",
+            "postalCode": "000000",
+            "stateProvince": "Hong Kong",
+            "countryId": 136,
+            "dateFrom": "2019-08-24T14:15:22Z",
+            "dateTo": "2019-08-24T14:15:22Z",
+            "verificationStatus": 1
+          },
+          "residentialAddressProofDocumentType": 1,
+          "residentialAddressProof": {
+            "base64": "{base64}",
+            "fileName": "upload_PDF_Sample.pdf",
+            "contentType": "application/pdf"
+          },
+          "email": "placeholder@example.com",
+          "relationship": "Client",
+          "clientReference": "Autotest creation"
+        },
+        "intermediaryBankId": 97865
+      }
+    },
+    "createBusinessThirdPartyBankAccount": {
+      "requestApiMethod": "POST",
+      "requestApiUrl": "3rd-party-bank-accounts/business",
+      "requestBody": {
+        "clientId": "{clientId}",
+        "bankId": "{bankId}",
+        "accountNumber": "000000000",
+        "clearingCode": "123",
+        "bankBranchCode": "123123",
+        "bankAccountHolderDetails": {
+          "registeredName": "Placeholder Test Company Ltd",
+          "registrationNumber": "0000000000",
+          "registrationDate": "2021-01-10T16:00:00.000Z",
+          "jurisdictionCountryId": "198",
+          "registrationDocumentProof": {
+            "base64": "{base64}",
+            "fileName": "upload_PDF_Sample.pdf",
+            "contentType": "application/pdf"
+          },
+          "phone": {
+            "phoneNumber": "0000000000",
+            "countryId": "136",
+            "countryCode": "93",
+            "type": 1
+          },
+          "registeredAddress": {
+            "id": 0,
+            "legalEntityId": 0,
+            "addressType": 1,
+            "line1": "autotest_Address Line",
+            "line2": "Lane No:5",
+            "city": "Hong Kong",
+            "postalCode": "000000",
+            "stateProvince": "Hong Kong",
+            "countryId": "136",
+            "dateFrom": "2019-08-24T14:15:22Z",
+            "dateTo": "2019-08-24T14:15:22Z",
+            "verificationStatus": 1
+          },
+          "registeredAddressProofDocumentType": 1,
+          "registeredAddressProof": {
+            "base64": "{base64}",
+            "fileName": "upload_PDF_Sample.pdf",
+            "contentType": "application/pdf"
+          },
+          "operatingAddress": {
+            "id": "0",
+            "legalEntityId": "0",
+            "addressType": 1,
+            "line1": "autotest_Address Line",
+            "line2": "Lane No:5",
+            "city": "Hong Kong",
+            "postalCode": "000000",
+            "stateProvince": "Hong Kong",
+            "countryId": "136",
+            "dateFrom": "2019-08-24T14:15:22Z",
+            "dateTo": "2019-08-24T14:15:22Z",
+            "verificationStatus": 1
+          },
+          "email": "placeholder.company@example.com",
+          "relationship": "Client",
+          "clientReference": "Test account create"
+        },
+        "intermediaryBankId": 97865
+      }
+    },
+    "retrieveSelectListOfThirdPartyBankAccounts": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "3rd-party-bank-accounts/selectlist",
+      "requestQS": {
+        "clientId": "{clientId}"
+      },
+      "staging": {
+        "responseBody": {}
+      },
+      "uat": {
+        "responseBody": {}
+      }
+    },
+    "retrieveThirdPartyBankAccountDetails": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "3rd-party-bank-accounts/{bankAccountId}",
+      "staging": {
+        "responseBody": {}
+      },
+      "uat": {
+        "responseBody": {}
+      }
+    }
+  }
+}

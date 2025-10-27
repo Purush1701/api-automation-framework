@@ -1,0 +1,76 @@
+{
+  "data": {
+    "retrieveAssetDetailsbyAssetId": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "ams/accounts/{aaId}",
+      "staging": {
+        "responseBody": {
+          "id": 15541,
+          "clientId": 393,
+          "serviceEntityId": 504,
+          "serviceEntityName": null,
+          "serviceAccountId": 1829,
+          "assetName": "ETH",
+          "assetSymbol": "ETH",
+          "assetClass": "Cryptocurrencies",
+          "assetAccountNumber": "100000000001",
+          "assetAccountName": "ETH Goerli Test Network",
+          "assetDenominationCurrency": "USD"
+        }
+      },
+      "uat": {
+        "responseBody": {
+          "id": 12582,
+          "clientId": 336,
+          "serviceEntityId": 312,
+          "serviceEntityName": null,
+          "serviceAccountId": 975,
+          "assetName": "United States Dollar",
+          "assetSymbol": "USD",
+          "assetClass": "Cash and cash equivalents",
+          "assetAccountNumber": "100000000002",
+          "assetAccountName": null,
+          "assetDenominationCurrency": "USD"
+        }
+      }
+    },
+    "retrieveAssetDetailsby_cId_seId": {
+      "requestApiMethod": "GET",
+      "requestApiUrl": "ams/accounts",
+      "requestQS": {
+        "cId": "",
+        "seId": ""
+      },
+      "staging": {
+        "responseBody": {
+          "id": 15504,
+          "clientId": 393,
+          "serviceEntityId": 504,
+          "serviceAccountId": 1791,
+          "assetName": "United States Dollar",
+          "assetSymbol": "USD",
+          "assetClass": "Cash",
+          "assetAccountName": null,
+          "assetAccountNumber": "100000000003",
+          "assetDenominationCurrency": "USD",
+          "state": 0
+        }
+      },
+      "uat": {
+        "responseBody": {
+          "id": 12582,
+          "clientId": 336,
+          "serviceEntityId": 312,
+          "serviceAccountId": 975,
+          "assetName": "United States Dollar",
+          "assetSymbol": "USD",
+          "assetClass": "Cash and cash equivalents",
+          "assetAccountName": null,
+          "assetAccountNumber": "100000000002",
+          "assetDenominationCurrency": "USD",
+          "state": 0
+        }
+      }
+    }
+  }
+}

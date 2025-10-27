@@ -1,0 +1,349 @@
+{
+  "data": {
+    "retrieveApplications": {
+      "requestApiUrl": "applications",
+      "requestApiMethod": "GET",
+      "requestQS": {
+        "archived": "{archived}",
+        "_sort": "createdAt desc",
+        "_page": 1,
+        "_pageSize": 50
+      },
+      "responseBody": {}
+    },
+    "createApplication": {
+      "requestApiUrl": "applications",
+      "requestApiMethod": "POST",
+      "requestBody": {
+        "legalEntityName": "{legalEntityName}"
+      },
+      "responseBody": {}
+    },
+    "uploadDocument": {
+      "requestApiUrl": "file-storage/upload-temp",
+      "requestApiMethod": "POST",
+      "requestHeader": {
+        "Content-Type": "multipart/form-data"
+      },
+      "requestBody": {
+        "formData": {
+          "FormFile": {
+            "isFile": true,
+            "fileName": "upload_PDF_Sample.pdf",
+            "path": "images/upload_PDF_Sample.pdf"
+          }
+        }
+      },
+      "responseBody": {}
+    },
+
+    "updateApplicationSubmit": {
+      "requestApiUrl": "applications/{applicationId}/submit",
+      "requestApiMethod": "PUT",
+      "responseBody": {}
+    },
+    "retrieveApplicationAuthorizedUsers": {
+      "requestApiUrl": "applications/{applicationId}/authorized-users",
+      "requestApiMethod": "GET",
+      "responseBody": {}
+    },
+    "createApplicationAuthorizedUser": {
+      "requestApiUrl": "applications/{applicationId}/authorized-users",
+      "requestApiMethod": "POST",
+      "requestBody": [
+        {
+          "firstName": "{firstName}",
+          "lastName": "{lastName}",
+          "userId": "{userId}",
+          "personalVerification": {
+            "fileId": "{fileId}",
+            "documentType": "Driving Licence",
+            "fileName": "{fileName}"
+          },
+          "proofOfAddress": {
+            "fileId": "{fileId}",
+            "documentType": "Utility Bill - Gas",
+            "fileName": "{fileName}"
+          }
+        }
+      ],
+      "responseBody": {}
+    },
+    "retrieveApplicationBankAccounts": {
+      "requestApiUrl": "applications/{applicationId}/bank-accounts",
+      "requestApiMethod": "GET",
+      "responseBody": {}
+    },
+    "createApplicationBankAccount": {
+      "requestApiUrl": "applications/{applicationId}/bank-accounts",
+      "requestApiMethod": "POST",
+      "requestBody": [
+        {
+          "beneficiary": "{beneficiary}",
+          "iban": "{iban}",
+          "bankName": "{bankName}",
+          "swift": "{swift}",
+          "alias": "{alias}",
+          "sampleOwnBankId": "{sampleOwnBankId}",
+          "sampleThirdPartyBankId": "{sampleThirdPartyBankId}",
+          "street": "{street}",
+          "postalCode": "{postalCode}",
+          "city": "{city}",
+          "state": "{state}",
+          "country": "{country}",
+          "documents": [
+            {
+              "fileId": "{fileId}",
+              "documentType": "Deposit Slip",
+              "fileName": "{fileName}"
+            }
+          ]
+        }
+      ],
+      "responseBody": {}
+    },
+    "retrieveApplicationBusinessInfo": {
+      "requestApiUrl": "applications/{applicationId}/business-info",
+      "requestApiMethod": "GET",
+      "responseBody": {}
+    },
+    "updateApplicationBusinessInfo": {
+      "requestApiUrl": "applications/{applicationId}/business-info",
+      "requestApiMethod": "POST",
+      "requestBody": {
+        "sourcesOfWealth": {
+          "contributionsOfMembersOrShareHolders": true,
+          "capitalGainsOrDividends": false,
+          "financialInstrumentOrInvestments": false,
+          "incomeFromSaleOfAssets": false,
+          "settlementOfAccountsOrServicePayments": false,
+          "loan": false,
+          "otherSources": false,
+          "otherSourcesDetails": "",
+          "furtherInformation": "Placeholder business information for testing purposes",
+          "documents": [
+            {
+              "fileId": "{fileId}",
+              "documentType": "Business Registration",
+              "fileName": "{fileName}"
+            }
+          ]
+        },
+        "politicallyExposedPerson": {
+          "isPep": false,
+          "pepDetails": "",
+          "isFamilyMemberPep": false,
+          "familyMemberPepDetails": "",
+          "isCloseAssociatePep": false,
+          "closeAssociatePepDetails": ""
+        },
+        "linesOfBusiness": {
+          "businessEntityType": "subsidiary-undertaking",
+          "accountingOrFinancialServices": true,
+          "administrativeAndSupportServiceActivities": false,
+          "consultingOrProfessionalServices": false,
+          "consumerGoodsAndServices": false,
+          "eCommerce": false,
+          "educationInstitutionOrServices": false,
+          "gambling": false,
+          "gamingAndEsports": false,
+          "government": false,
+          "hotelsRestaurantsOrLeisure": false,
+          "humanResourcesOrEmploymentServices": false,
+          "managementOfOwnAssets": false,
+          "materialsManufacturingAndConstruction": false,
+          "nonProfitOrganization": false,
+          "professionalScientificAndTechnicalActivities": false,
+          "realEstateActivities": false,
+          "travelTransportationOrAutomotive": false,
+          "softwareItOrHardware": false,
+          "mediaAndAdvertising": false,
+          "otherSources": false,
+          "otherSourcesDetails": ""
+        },
+        "businessActivities": {
+          "description": "Placeholder business activities for testing purposes",
+          "isFinancialStatementsRequired": false,
+          "financialStatementsDetails": "",
+          "hasHongKongBusinessActivities": false,
+          "hongKongBusinessActivitiesDetails": "",
+          "isTaxResidentInCorpOriginCountry": false,
+          "taxResidentInCorpOriginCountryDetails": "",
+          "hasTaxResidentInOtherCountries": false,
+          "otherTaxResidencyCountries": "",
+          "otherCountryTins": "",
+          "isSpecialPermissionRequired": false,
+          "specialPermissionDetails": "",
+          "approximateNumberOfEmployees": "ten-to-forty-nine",
+          "annualNetTurnover": "50000"
+        },
+        "projectedOrders": {
+          "expectedMonthlyStableCoinsMintedAmount": "ten-millions-to-twenty-five-millions",
+          "expectedMonthlyCumulativeMints": "ten-to-forty-nine",
+          "maxAnticipatedAmountForSingleMint": "100000",
+          "expectedIrregularMintsFirstYear": "50000"
+        }
+      },
+      "responseBody": {}
+    },
+    "retrieveApplicationDocuments": {
+      "requestApiUrl": "applications/{applicationId}/documents",
+      "requestApiMethod": "GET",
+      "responseBody": {}
+    },
+    "createApplicationDocument": {
+      "requestApiUrl": "applications/{applicationId}/documents",
+      "requestApiMethod": "POST",
+      "requestBody": {
+        "memorandumOfAssociation": {
+          "fileId": "{fileId}",
+          "documentType": "Articles of Association",
+          "fileName": "<string>"
+        },
+        "bankStatement": {
+          "fileId": "{fileId}",
+          "documentType": "Bank Statement",
+          "fileName": "<string>"
+        },
+        "certificateOfIncumbency": {
+          "fileId": "{fileId}",
+          "documentType": "Certificate of Incumbency",
+          "fileName": "<string>"
+        },
+        "groupOwnershipAndStructure": {
+          "fileId": "{fileId}",
+          "documentType": "Group Ownership And Structure",
+          "fileName": "<string>"
+        },
+        "certificateOfIncAndNameChange": {
+          "fileId": "{fileId}",
+          "documentType": "Certificate of Incorporation",
+          "fileName": "<string>"
+        },
+        "registerOfShareholder": {
+          "fileId": "{fileId}",
+          "documentType": "Register of Shareholder",
+          "fileName": "<string>"
+        },
+        "registerOfDirectors": {
+          "fileId": "{fileId}",
+          "documentType": "Register of Directors",
+          "fileName": "<string>"
+        },
+        "boardResolutionAppointingAdditionalUsers": {
+          "fileId": "{fileId}",
+          "documentType": "Company Board Resolution Appointing Additional Users",
+          "fileName": "<string>"
+        },
+        "additionalDocuments": []
+      },
+
+      "responseBody": {}
+    },
+    "retrieveApplicationEntityParticulars": {
+      "requestApiUrl": "applications/{applicationId}/entity-particulars",
+      "requestApiMethod": "GET",
+      "responseBody": {}
+    },
+    "updateApplicationEntityParticulars": {
+      "requestApiUrl": "applications/{applicationId}/entity-particulars",
+      "requestApiMethod": "POST",
+      "requestBody": {
+        "companyParticulars": {
+          "legalStructure": "public-limited-company",
+          "structureDetails": "",
+          "registrationNumber": "{registrationNumber}",
+          "dateOfInc": "2023-10-01",
+          "countryOfInc": "{countryOfInc}",
+          "documents": [
+            {
+              "fileId": "{fileId}",
+              "documentType": "Certificate of Incumbency",
+              "fileName": "{fileName}"
+            }
+          ]
+        },
+        "registrationAddress": {
+          "street": "{street}",
+          "postalCode": "{postalCode}",
+          "city": "{city}",
+          "state": "{state}",
+          "country": "{country}"
+        },
+        "companyContact": {
+          "email": "{email}",
+          "phone": "{phone}"
+        }
+      },
+      "responseBody": {}
+    },
+    "createApplicationAccount": {
+      "requestApiUrl": "applications/{applicationId}/accounts",
+      "requestApiMethod": "POST",
+      "requestBody": [
+        {
+          "clientName": "{clientName}",
+          "accountNumber": "{accountNumber}"
+        }
+      ],
+      "responseBody": {}
+    },
+    "retrieveApplicationAccounts": {
+      "requestApiUrl": "applications/{applicationId}/accounts",
+      "requestApiMethod": "GET",
+      "responseBody": {}
+    },
+    "retrieveApplicationMetadata": {
+      "requestApiUrl": "applications/{applicationId}/metadata",
+      "requestApiMethod": "GET",
+      "responseBody": {}
+    },
+    "createApplicationWallet": {
+      "requestApiUrl": "applications/{applicationId}/wallets",
+      "requestApiMethod": "POST",
+      "requestBody": [
+        {
+          "network": "solana-testnet",
+          "address": "{address}"
+        }
+      ],
+      "responseBody": {}
+    },
+    "retrieveApplicationWallets": {
+      "requestApiUrl": "applications/{applicationId}/wallets",
+      "requestApiMethod": "GET",
+      "responseBody": {}
+    },
+    "verifyApplication": {
+      "requestApiUrl": "applications/{applicationId}/verify",
+      "requestApiMethod": "PUT",
+      "requestBody": {},
+      "responseBody": {}
+    },
+    "requireAdditionalInfoApplication": {
+      "requestApiUrl": "applications/{applicationId}/additional-info-required",
+      "requestApiMethod": "PUT",
+      "responseBody": {}
+    },
+    "rejectApplication": {
+      "requestApiUrl": "applications/{applicationId}/reject",
+      "requestApiMethod": "PUT",
+      "responseBody": {}
+    },
+    "approveApplication": {
+      "requestApiUrl": "applications/{applicationId}/approve",
+      "requestApiMethod": "PUT",
+      "responseBody": {}
+    },
+    "archiveApplication": {
+      "requestApiUrl": "applications/{applicationId}/archive",
+      "requestApiMethod": "PUT",
+      "responseBody": {}
+    },
+    "retrieveCountries": {
+      "requestApiUrl": "lookup/countries",
+      "requestApiMethod": "GET",
+      "responseBody": {}
+    }
+  }
+}

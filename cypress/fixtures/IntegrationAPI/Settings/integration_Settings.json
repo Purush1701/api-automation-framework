@@ -1,0 +1,10 @@
+{
+  "data": {
+    "retrieveClientDetails": {
+      "requestHeader": { "X-Delegated-Client": "{X-Delegated-Client}" },
+      "requestApiUrl": "settings/me",
+      "requestApiMethod": "GET",
+      "responseBody": {}
+    }
+  }
+}
